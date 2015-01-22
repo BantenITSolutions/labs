@@ -389,7 +389,7 @@ div.grid-view {
 							<a href="<?php echo Yii::app()->baseUrl; ?>/barang"><i class="icon-th-list icon-white"></i><span> Data Barang</span></a>
 						</li>
 						<li>
-							<a href="<?php echo Yii::app()->baseUrl; ?>/mahasiswa"><i class="icon-hdd icon-white"></i><span> Data Mahasiswa</span></a>
+							<a href="<?php echo Yii::app()->baseUrl; ?>/mahasiswa"><i class="icon-hdd icon-white"></i><span> Data Mahasiswa <span class="badge badge-important"><?php echo $_SESSION['jumlah_mahasiswa_baru']; ?></span></span></a>
 						</li>
 						<li>
 							<a href="<?php echo Yii::app()->baseUrl; ?>/modul_pembelajaran"><i class="icon-list icon-white"></i><span> Data Modul Pembelajaran</span></a>

@@ -12,5 +12,9 @@ class SetConfig extends CWidget {
         foreach($dt as $d){
         	$_SESSION[$d['type']] = $d['content'];
         }
+
+        $list= Yii::app()->db->createCommand('select count(*) as jum from tbl_user_mahasiswa where status!="aktif"')->queryAll();
+
+		$_SESSION['jumlah_mahasiswa_baru'] = $list[0]['jum'];
     }
 }

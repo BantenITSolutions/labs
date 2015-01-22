@@ -58,7 +58,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'gambar'); ?>
-			<? $this->widget('ext.EAjaxUpload.EAjaxUpload',
+			<?php $this->widget('ext.EAjaxUpload.EAjaxUpload',
 			array(
 			    'id'=>'uploadFile',
 			    'config'=>array(
