@@ -1,0 +1,1 @@
+<h1>Hello, <?php echo Yii::app()->user->nama_lengkap; ?></h1>
