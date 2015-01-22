@@ -136,7 +136,7 @@ class Peminjaman extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->condition = 'id_user_cms = "'.Yii::app()->user->id.'"';
+		$criteria->condition = 'id_user_mahasiswa = "'.Yii::app()->user->id.'"';
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
