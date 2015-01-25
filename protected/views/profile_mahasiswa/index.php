@@ -72,7 +72,7 @@
 		<?php
 			$gambar = !empty($model->gambar) ? Yii::app()->baseUrl.'/media/mahasiswa/'.$model->gambar : '';
 		?>
-		<img id="uploadedImage" src="<?php echo $gambar; ?>">
+		<img id="uploadedImage" src="<?php echo $gambar; ?>" width="250">
 	</div>
 
 	<div class="row">

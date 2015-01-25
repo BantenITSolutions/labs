@@ -57,6 +57,12 @@ class MahasiswaController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
+	public function actionUnapprove()
+	{
+		$list= Yii::app()->db->createCommand('select count(*) as jum from tbl_user_mahasiswa where status!="aktif"')->queryAll();
+
+		echo $list[0]['jum'];
+	}
 
 	public function actionAdd_Gambar()
 	{

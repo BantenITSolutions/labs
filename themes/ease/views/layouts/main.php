@@ -335,14 +335,24 @@ div.grid-view {
 			<div class="pull-right">
 				<div class="btn-group">
 				<?php
-					if(Yii::app()->user->status==='administrasi')
+					if(Yii::app()->user->status==='kalab')
 					{
 				?>
 				<a href="<?php echo Yii::app()->baseUrl; ?>/manajemen_user" class="button">
 					<i class="icon-fire"></i>
 					Manajemen Pengguna
 				</a>
-				<?php } ?>
+				<?php }
+					else if(Yii::app()->user->status==='laboran'){
+						?>	
+				<a href="<?php echo Yii::app()->baseUrl; ?>/mahasiswa" class="button">
+					<span class="badge badge-important" style="padding: 0px 10px; position: initial;line-height: 20px; margin-right:5px;" id="jum_mahasiswa">0</span>
+					<i class="icon-user"></i>
+					Mahasiswa Baru
+				</a>
+						<?php
+					}
+				 ?>
 					<a href="#" class="button dropdown-toggle" data-toggle="dropdown"><i class="icon-white icon-user"></i><?php echo Yii::app()->user->nama_lengkap; ?><span class="caret"></span></a>
 					<div class="dropdown-menu pull-right">
 						<div class="right-details">
@@ -389,7 +399,7 @@ div.grid-view {
 							<a href="<?php echo Yii::app()->baseUrl; ?>/barang"><i class="icon-th-list icon-white"></i><span> Data Barang</span></a>
 						</li>
 						<li>
-							<a href="<?php echo Yii::app()->baseUrl; ?>/mahasiswa"><i class="icon-hdd icon-white"></i><span> Data Mahasiswa <span class="badge badge-important"><?php echo $_SESSION['jumlah_mahasiswa_baru']; ?></span></span></a>
+							<a href="<?php echo Yii::app()->baseUrl; ?>/mahasiswa"><i class="icon-hdd icon-white"></i><span> Data Mahasiswa <span class="badge badge-important" id="jum_mahasiswa_sidebar"><?php echo $_SESSION['jumlah_mahasiswa_baru']; ?></span></span></a>
 						</li>
 						<li>
 							<a href="<?php echo Yii::app()->baseUrl; ?>/modul_pembelajaran"><i class="icon-list icon-white"></i><span> Data Modul Pembelajaran</span></a>
@@ -485,6 +495,19 @@ div.grid-view {
 	</div>
 	<script type="text/javascript">
 		var baseUrl = "<?php echo Yii::app()->baseUrl; ?>";
+
+		function getUnnaprove(){
+			$.get( "<?php echo Yii::app()->baseUrl; ?>/mahasiswa/unapprove", function( data ) {
+			  $("#jum_mahasiswa").html(data);
+			  $("#jum_mahasiswa_sidebar").html(data);
+			});
+		}
+
+		getUnnaprove();
+
+		setInterval(function(){ 
+			getUnnaprove();
+		}, 5000);
 	</script>
 </body>
 

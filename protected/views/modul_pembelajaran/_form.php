@@ -39,7 +39,7 @@
 			    'id'=>'uploadFile',
 			    'config'=>array(
 			           'action'=>Yii::app()->createUrl('modul_pembelajaran/add_nama_file'),
-			           'allowedExtensions'=>array("zip"),
+			           'allowedExtensions'=>array("pdf"),
 			           'sizeLimit'=>5*1024*1024,// maximum file size in bytes
 			           'onComplete'=>"js:function(id, fileName, responseJSON){ 
 			           		$('#ModulPembelajaran_nama_file').val(responseJSON['filename']); 

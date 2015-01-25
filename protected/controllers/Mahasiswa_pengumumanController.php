@@ -28,4 +28,17 @@ class Mahasiswa_pengumumanController extends Controller
 			'model'=>$model,
 		));
 	}
+	public function actionView($id)
+	{
+		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
+	}
+	public function loadModel($id)
+	{
+		$model=Pengumuman::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
 }
